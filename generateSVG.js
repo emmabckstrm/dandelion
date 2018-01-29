@@ -98,6 +98,7 @@ bubbles.enter().append('circle')
         .style("fill", function(d) {
             return interpolate(d.values['initial']);
         })
+        /*
         .on("mouseover", function(d) {
             div.transition()
                 .duration(200)
@@ -110,7 +111,7 @@ bubbles.enter().append('circle')
             div.transition()
                 .duration(200)
                 .style("opacity", 0);
-        })
+        })*/
         .transition()
             .delay(function(d) { return getRandomArbitrary(0,1)*1000; })
             .duration(0)
@@ -161,6 +162,7 @@ var categoryGroupBubbles = categoryBubbles.enter().append('g')
             return d.y;
         })
         .style("opacity", 0)
+        /*
         .on("mouseover", function(d) {
             div.transition()
                 .duration(200)
@@ -174,6 +176,7 @@ var categoryGroupBubbles = categoryBubbles.enter().append('g')
                 .duration(200)
                 .style("opacity", 0);
         })
+        */
 
 
 categoryGroupBubbles.append('circle')
