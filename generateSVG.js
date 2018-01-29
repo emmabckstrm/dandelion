@@ -64,15 +64,23 @@ var bubbles = svg.selectAll("circle.bubble")  // Add circle svg
 
 bubbles.enter().append('circle')
         .attr("class", function(d){
-            if (d.radialX == daysToShow && d.radialY == dayOfWeek-1) {
-                return "bubble bubble-visible bubble-today bubble-category-" + String(d.category);
-            } else if (d.radialX == daysToShow && d.radialY < dayOfWeek) {
-                return "bubble bubble-visible bubble-category-" + String(d.category);
-            } else if (d.radialX < daysToShow) {
-                return "bubble bubble-visible bubble-category-" + String(d.category);
+            if (d.num == daysToShow-1) {
+              return "bubble bubble-visible bubble-today bubble-category-" + String(d.layer);
+            } else if (d.num < daysToShow-1) {
+              return "bubble bubble-visible bubble-category-" + String(d.layer);
             } else {
-                return "bubble bubble-opacity bubble-category-" + String(d.category);
+              return "bubble bubble-opacity bubble-category-" + String(d.layer);
             }
+            /*
+            if (d.radialX == daysToShow && d.radialY == dayOfWeek-1) {
+                return "bubble bubble-visible bubble-today bubble-category-" + String(d.layer);
+            } else if (d.radialX == daysToShow && d.radialY < dayOfWeek) {
+                return "bubble bubble-visible bubble-category-" + String(d.layer);
+            } else if (d.radialX < daysToShow) {
+                return "bubble bubble-visible bubble-category-" + String(d.layer);
+            } else {
+                return "bubble bubble-opacity bubble-category-" + String(d.layer);
+            }*/
         })
         .attr("id", function(d) {
             return "bubble_id_" + String(d.radialX) + "_" + String(d.radialY);
@@ -94,7 +102,7 @@ bubbles.enter().append('circle')
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div.html(categoryLabels[d.category] + ": " + String(Math.round(d.values.initial*100)) + "% ekologiskt")
+            div.html(categoryLabels[d.layer] + ": " + String(Math.round(d.values.initial*100)) + "% ekologiskt")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -141,10 +149,10 @@ var categoryBubbles = svg.selectAll(".category")  // Add circle svg
 
 var categoryGroupBubbles = categoryBubbles.enter().append('g')
         .attr("class", function(d){
-            return "category category-" + String(d.category);
+            return "category category-" + String(d.layer);
         })
         .attr("id", function(d) {
-            return "category_id_" + String(d.category) + "_" + String(d.category);
+            return "category_id_" + String(d.layer) + "_" + String(d.layer);
         })
         .attr("cx", function(d) {
             return d.x;  // Circle's X
@@ -157,7 +165,7 @@ var categoryGroupBubbles = categoryBubbles.enter().append('g')
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div.html(categoryLabels[d.category] + ": " + String(Math.round(d.value*100)) + "% ekologiskt")
+            div.html(categoryLabels[d.layer] + ": " + String(Math.round(d.value*100)) + "% ekologiskt")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -179,7 +187,7 @@ categoryGroupBubbles.append('circle')
             return 0;//((d.value)*maxBubbleRadius) + minBubbleRadius;
         })
         .style("fill", function(d) {
-            return colors[d.category];
+            return colors[d.layer];
         })
 
 categoryGroupBubbles.append('text')

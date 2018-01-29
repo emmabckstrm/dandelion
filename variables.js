@@ -16,12 +16,17 @@ weekdayLabelsOriginal = weekdayLabels;
 var daysToShow = 15;
 
 var currentDate = new Date();
+var startOfYear = new Date(currentDate.getFullYear(), 0, 0);
 var currentMonth = currentDate.getMonth() + 1;
 var currentYear = currentDate.getFullYear();
 //var numberOfArms = new Date(currentYear, currentMonth, 0).getDate(); // number of days in current month
 var dayOfWeek = currentDate.getDay();
 var daysToShow = currentDate.getDate(); // current day of month
 //daysToShow = 47;
+
+var diff = (currentDate - startOfYear) + ((startOfYear.getTimezoneOffset() - currentDate.getTimezoneOffset()) * 60 * 1000);
+var oneDay = 1000 * 60 * 60 * 24;
+var dayOfYear = Math.floor(diff / oneDay);
 
 // Circle variables
 var numberOfArms = 52;

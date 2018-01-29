@@ -30,7 +30,7 @@ var swipeCard = function() {
             	tooltipText = String(Math.round(d.values['initial']*100))
             }
 
-            div.html(categoryLabels[d.category] + ": " + tooltipText + "% ekologiskt")
+            div.html(categoryLabels[d.layer] + ": " + tooltipText + "% ekologiskt")
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 28) + "px");
             })
@@ -131,11 +131,11 @@ var mergenumberOfLayers = function() {
             .ease(bubbleEase)
             .attr("cx", function(d) {
                  //return origin.x;
-                 return categoryPositions[d.category].x;
+                 return categoryPositions[d.layer].x;
              })
             .attr("cy", function(d) {  // Circle's Y
                 //return origin.y;
-                return  categoryPositions[d.category].y;
+                return  categoryPositions[d.layer].y;
             })
         .transition()
         	.style("opacity", 0);
@@ -151,12 +151,12 @@ var mergenumberOfLayers = function() {
         .attr("cx", function(d) {
             //console.log(d);
             //return origin.x;
-            return categoryPositions[d.category].x;
+            return categoryPositions[d.layer].x;
          })
         .attr("cy", function(d) {  // Circle's Y
             //console.log(d);
             //return origin.y;
-            return  categoryPositions[d.category].y;
+            return  categoryPositions[d.layer].y;
         })
 
 }

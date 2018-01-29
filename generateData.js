@@ -241,8 +241,9 @@ var generateBubbleData = function() {
 				'posY': origin.y + coordSys[i][c].y,
 				'radialX': i,
 				'radialY': c,
-				'category': c,
+				'layer': c,
 				'values': {},
+				'num': j,
 			};
 			dataArray[j] = bubbleObj;
 			j += 1;
