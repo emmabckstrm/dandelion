@@ -105,7 +105,7 @@ var monthsArr = new Array();
     monthsArr[9] = "Oktober";
     monthsArr[10] = "November";
     monthsArr[11] = "December";
-var numberOfnumberOfArms = [31,28,31,30,31,30,31,31,30,31,30,31];
+var numberOfDaysPerMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
 
 var seasonLabels = ["Vår", "Sommar", "Höst", "Vinter"];
 

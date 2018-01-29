@@ -57,8 +57,8 @@ var generateMonthData = function() {
 			dataArray[j] = obj;
 
 			// how many weeks for each monthsArr
-			i += numberOfnumberOfArms[j] / 7;
-			if (numberOfnumberOfArms[j] / 7 > 4.3) {
+			i += numberOfDaysPerMonth[j] / 7;
+			if (numberOfDaysPerMonth[j] / 7 > 4.3) {
 				i += 0.3;
 			}
 			i = Math.round(i);
@@ -96,7 +96,7 @@ var generateWeekData = function() {
 				'posX': origin.x + topLabels[i].x,
 				'posY': origin.y + topLabels[i].y,
 				'radialX': i,
-				'label': 'v. ' + String(i+1),
+				'label': 'w. ' + String(i+1),
 				'num': j,
 			};
 			dataArray[j] = obj;
@@ -269,28 +269,6 @@ var storeNames = ["COOP Järna", "COOP Fridhemsplan", "COOP Gnesta"];
 var generateTopList = function(size) {
 	var dataArray = [];
 }
-var topListData = [
-	{
-		'name': "COOP Järna",
-		'value': 0.3345,
-		'position': 1
-	},
-	{
-		'name': "COOP Järna",
-		'value': 0.132,
-		'position': 16
-	},
-	{
-		'name': storeName,
-		'value': 0.112,
-		'position': 17
-	},
-	{
-		'name': "COOP Järna",
-		'value': 0.0845,
-		'position': 18
-	}
-];
 
 var legendData = generateLegendData();
 var monthData = generateMonthData();
