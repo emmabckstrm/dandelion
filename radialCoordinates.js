@@ -6,7 +6,7 @@ var radiusStep = function(x) {
 coordSys = [];
 topLabels = [];
 
-for (var d=0; d<daysPerMonth; d++) {
+for (var d=0; d<numberOfArms; d++) {
     currAngle = angle*d -90;
     var r, a, x, y;
 
@@ -14,7 +14,7 @@ for (var d=0; d<daysPerMonth; d++) {
 
 
 
-    for (var c=0; c<categories; c++) {
+    for (var c=0; c<numberOfLayers; c++) {
         currRadius += radiusStep(c);
         r = currRadius;
         a = currAngle * (Math.PI/180);

@@ -12,25 +12,26 @@ weekdayLabels = [
 weekdayLabelsOriginal = weekdayLabels;
 
 // Date variables
-var daysPerMonth = 52;
+
 var daysToShow = 15;
 
 var currentDate = new Date();
 var currentMonth = currentDate.getMonth() + 1;
 var currentYear = currentDate.getFullYear();
-var daysPerMonth = new Date(currentYear, currentMonth, 0).getDate(); // number of days in current month
+//var numberOfArms = new Date(currentYear, currentMonth, 0).getDate(); // number of days in current month
 var dayOfWeek = currentDate.getDay();
-daysPerMonth = 52; // 52 weeks
 var daysToShow = currentDate.getDate(); // current day of month
-daysToShow = 47;
+//daysToShow = 47;
 
 // Circle variables
-var angle = 360 / daysPerMonth;
+var numberOfArms = 52;
+var numberOfLayers = 7;
+var angle = 360 / numberOfArms;
 var currAngle = 0;
 var innerRadius = 70;
 var currRadius = innerRadius;
 var radius = 30;
-var categories = 7;
+
 
 var canvas_width = 615;
 var canvas_height = 615;
@@ -39,7 +40,7 @@ var minBubbleRadius = 3;
 var maxBubbleRadius = 14;
 // interpolated radius
 var interpolatedRadius = d3.interpolateNumber(maxBubbleRadius, maxBubbleRadius+2);
-var totalItems = daysPerMonth*categories;
+var totalItems = numberOfArms*numberOfLayers;
 
 
 
@@ -47,7 +48,6 @@ var totalItems = daysPerMonth*categories;
 Bubble colors
 */
 var interpolate = d3.interpolateRgb("yellow", "seagreen");
-console.log(interpolate(0.5));
 var interpolatedColors = [interpolate(0),interpolate(0.25),interpolate(0.5),interpolate(0.75),interpolate(1)];
 
 var colrMeat = d3.rgb('#f0a4a6');
@@ -100,7 +100,7 @@ var monthsArr = new Array();
     monthsArr[9] = "Oktober";
     monthsArr[10] = "November";
     monthsArr[11] = "December";
-var numberOfDaysPerMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+var numberOfnumberOfArms = [31,28,31,30,31,30,31,31,30,31,30,31];
 
 var seasonLabels = ["Vår", "Sommar", "Höst", "Vinter"];
 
@@ -143,7 +143,7 @@ var categoryPositions = [
 ];
 var categoryData = [];
 
-for (var i=0; i<categories; i++) {
+for (var i=0; i<numberOfLayers; i++) {
 	categoryData[i] = {
 				'value': 0,
 				'x': categoryPositions[i].x,

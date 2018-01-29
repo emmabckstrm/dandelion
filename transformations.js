@@ -122,8 +122,8 @@ var mergeBubbles = function() {
 
 }
 
-var mergeCategories = function() {
-	for (var i=0; i<categories; i++) {
+var mergenumberOfLayers = function() {
+	for (var i=0; i<numberOfLayers; i++) {
 
 		var currentCat = ".bubble-category-" + String(i);
 		d3.selectAll(currentCat)

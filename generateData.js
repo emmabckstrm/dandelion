@@ -26,7 +26,7 @@ var generateLegendData = function() {
 var generateWeekdayData = function() {
 	var j = 0;
 	var dataArray = [];
-		for (var i=0; i<daysPerMonth; i=i+4) {
+		for (var i=0; i<numberOfArms; i=i+4) {
 
 			var obj = {
 				'posX': origin.x + topLabels[i].x,
@@ -57,8 +57,8 @@ var generateMonthData = function() {
 			dataArray[j] = obj;
 
 			// how many weeks for each monthsArr
-			i += numberOfDaysPerMonth[j] / 7;
-			if (numberOfDaysPerMonth[j] / 7 > 4.3) {
+			i += numberOfnumberOfArms[j] / 7;
+			if (numberOfnumberOfArms[j] / 7 > 4.3) {
 				i += 0.3;
 			}
 			i = Math.round(i);
@@ -91,8 +91,7 @@ var generateSeasonData = function() {
 var generateWeekData = function() {
 	var i = 0;
 	var dataArray = [];
-		for (var j=0; j<daysPerMonth/4; j++) {
-			console.log(i)
+		for (var j=0; j<numberOfArms/4; j++) {
 			var obj = {
 				'posX': origin.x + topLabels[i].x,
 				'posY': origin.y + topLabels[i].y,
@@ -110,10 +109,10 @@ var generateWeekData = function() {
 
 var generateRandomData = function() {
 	var dataArray = [];
-	for (var i=0; i<daysPerMonth; i++) {
+	for (var i=0; i<numberOfArms; i++) {
 		dataArray[i] = [];
 
-		for (var c=0; c<categories; c++) {
+		for (var c=0; c<numberOfLayers; c++) {
 
 			// Random number between 0 and 1
 			dataArray[i][c] = getRandomArbitrary(0,1);
@@ -129,10 +128,10 @@ var generateRandomData = function() {
 var generateRandomDataOneArray = function() {
 	var dataArray = [];
 	var j = 0;
-	for (var i=0; i<daysPerMonth; i++) {
+	for (var i=0; i<numberOfArms; i++) {
 		//dataArray[i] = [];
 
-		for (var c=0; c<categories; c++) {
+		for (var c=0; c<numberOfLayers; c++) {
 
 			// Random number between 0 and 1
 			dataArray[j] = getRandomArbitrary(0,1);
@@ -147,12 +146,12 @@ var generateRandomDataOneArray = function() {
 
 var generateRandomUserData = function() {
 	var dataArray = [];
-	for (var i=0; i<daysPerMonth; i++) {
+	for (var i=0; i<numberOfArms; i++) {
 		dataArray[i] = [];
 
 		shoppedToday = getRandomInt(0,2);
 
-		for (var c=0; c<categories; c++) {
+		for (var c=0; c<numberOfLayers; c++) {
 
 			if (shoppedToday) {
 				shoppedThisCategory = getRandomInt(0,2);
@@ -176,10 +175,10 @@ var generateRandomUserDataOneArray = function() {
 	var dataArray = [];
 	var j = 0;
 
-	for (var i=0; i<daysPerMonth; i++) {
+	for (var i=0; i<numberOfArms; i++) {
 		shoppedToday = getRandomInt(0,2);
 
-		for (var c=0; c<categories; c++) {
+		for (var c=0; c<numberOfLayers; c++) {
 
 			if (shoppedToday) {
 				shoppedThisCategory = getRandomInt(0,2);
@@ -203,7 +202,7 @@ var updateAggregateCategoryData = function(d) {
 	var totalCategory = 0;
 	var k = 0;
 	for (var j=0; j<daysToShow; j++) {
-		for (var i=0; i<categories; i++) {
+		for (var i=0; i<numberOfLayers; i++) {
 			totalCategory += d[k];
 			categoryData[i].value += d[k];///daysToShow;
 			k += 1;
@@ -220,8 +219,8 @@ var updateAggregateCategoryData = function(d) {
 //	bubble array under bubbleData[i].values dictionary
 var updateBubbleData = function(bubbleData, newData, newDataKey) {
 	var j = 0;
-	for (var i=0; i<daysPerMonth; i++) {
-		for (var c=0; c<categories; c++) {
+	for (var i=0; i<numberOfArms; i++) {
+		for (var c=0; c<numberOfLayers; c++) {
 
 			bubbleData[j].values[newDataKey] = newData[j];
 
@@ -234,8 +233,8 @@ var updateBubbleData = function(bubbleData, newData, newDataKey) {
 var generateBubbleData = function() {
 	var j = 0;
 	var dataArray = [];
-	for (var i=0; i<daysPerMonth; i++) {
-		for (var c=0; c<categories; c++) {
+	for (var i=0; i<numberOfArms; i++) {
+		for (var c=0; c<numberOfLayers; c++) {
 
 			var bubbleObj = {
 				'posX': origin.x + coordSys[i][c].x,
