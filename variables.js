@@ -27,6 +27,9 @@ var daysToShow = currentDate.getDate(); // current day of month
 var diff = (currentDate - startOfYear) + ((startOfYear.getTimezoneOffset() - currentDate.getTimezoneOffset()) * 60 * 1000);
 var oneDay = 1000 * 60 * 60 * 24;
 var dayOfYear = Math.floor(diff / oneDay);
+daysToShow = dayOfYear;
+//daysToShow = 328;
+
 
 // Circle variables
 var numberOfArms = 52;
